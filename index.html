@@ -1,26 +1,32 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Place ID Finder</title>
+<head>
+    <title>CSUN Map Quiz</title>
 
-        <link rel="stylesheet" type="text/css" href="./style.css" />
-        <script type="module" src="./script.js"></script>
-        <script>
-            // prettier-ignore
-            (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-                key: "AIzaSyB5WtZE_fNNEdVKMY85q9kESGnnvK54k6Y"
-            });
-        </script>
-    </head>
-    <body>
-        <gmp-map center="34.2383, -118.5237" zoom="13" map-id="DEMO_MAP_ID">
-            <gmp-place-autocomplete
-                slot="control-inline-start-block-start"></gmp-place-autocomplete>
-        </gmp-map>
-        <div id="infowindow-content">
-            <span id="place-name" class="title"></span><br />
-            <strong>Place ID:</strong> <span id="place-id"></span><br />
-            <span id="place-address"></span>
-        </div>
-    </body>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./script.js"></script>
+
+    <script>
+        // prettier-ignore
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: "AIzaSyB5WtZE_fNNEdVKMY85q9kESGnnvK54k6Y"
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="header">
+        <h1>CSUN Map Quiz</h1>
+        <h2 id="question"></h2>
+        <h3 id="score">Score: 0</h3>
+    </div>
+
+    <gmp-map
+        center="34.2406679,-118.5300099"
+        zoom="16"
+        map-id="DEMO_MAP_ID">
+    </gmp-map>
+
+</body>
 </html>
-

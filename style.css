@@ -1,14 +1,3 @@
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-gmp-map {
-    height: 100%;
-}
-
-/* 
- * Makes the sample page fill the window. 
- */
 html,
 body {
     height: 100%;
@@ -17,21 +6,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#infowindow-content {
-    display: none;
+gmp-map {
+    height: 85%;
+    width: 100%;
 }
 
-gmp-map #infowindow-content {
-    display: inline;
-}
-
-gmp-place-autocomplete {
-    position: absolute;
-    height: 30px;
-    width: 500px;
-    top: 10px;
-    left: 10px;
-    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.2);
-    color-scheme: light;
-    border-radius: 10px;
+#header {
+    text-align: center;
+    background-color: #d62828;
+    color: white;
+    padding: 10px;
 }
