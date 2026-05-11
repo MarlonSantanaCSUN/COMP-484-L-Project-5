@@ -6,7 +6,7 @@ let rectangle = null;
 // 5 locations total
 const locations = [
     {
-        name: "Student Recreation Center",
+        name: "Student Recreation Center—G4",
         bounds: {
             north: 34.240648,
             south: 34.239291,
@@ -16,32 +16,32 @@ const locations = [
     },
 
     {
-        name: "Oviatt Library",
+        name: "	Arbor Grill—D5",
         bounds: {
-            north: 34.2404,
-            south: 34.2396,
-            east: -118.5291,
-            west: -118.5304
+            north: 34.241319,
+            south: 34.241036,
+            east: -118.529556,
+            west: -118.529787
         }
     },
 
     {
-        name: "Bookstore",
+        name: "	Bookstein Hall—C5",
         bounds: {
-            north: 34.2379,
-            south: 34.2372,
-            east: -118.5288,
-            west: -118.5298
+            north: 34.242473,
+            south: 34.241417,
+            east: -118.530038,
+            west: -118.531102
         }
     },
 
     {
-        name: "Sierra Center",
+        name: "Sierra Tower—C3",
         bounds: {
-            north: 34.2387,
-            south: 34.2380,
-            east: -118.5312,
-            west: -118.5322
+            north: 34.239142,
+            south: 34.238435,
+            east: -118.530110,
+            west: -118.530258
         }
     },
 
