@@ -48,10 +48,10 @@ const locations = [
     {
         name: "University Student Union",
         bounds: {
-            north: 34.2402,
-            south: 34.2392,
-            east: -118.5262,
-            west: -118.5276
+            north: 34.240293,
+            south: 34.239791,
+            east: -118.526748,
+            west: -118.527267
         }
     }
 ];
