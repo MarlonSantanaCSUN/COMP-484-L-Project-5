@@ -2,6 +2,8 @@ let map;
 let currentQuestion = 0;
 let score = 0;
 let rectangles = [];
+let startTime;
+let timerInterval;
 
 // 5 locations total
 const locations = [
@@ -74,40 +76,24 @@ async function init() {
         draggable: false,
         keyboardShortcuts: false,
 
-        styles: [ // Hide labels and points of interest
+        styles: [ // Hide labels, points of interest, and other distractions
+            {
+                featureType: "all",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            },
             {
                 featureType: "poi",
+                elementType: "all",
                 stylers: [{ visibility: "off" }]
             },
-            {
-                featureType: "transit",
-                stylers: [{ visibility: "off" }]
-            },
-            {
-                featureType: "administrative",
-                stylers: [{ visibility: "off" }]
-            },
-            {
-                featureType: "road",
-                elementType: "labels",
-                stylers: [{ visibility: "off" }]
-            },
-            {
-                featureType: "poi.business",
-                stylers: [{ visibility: "off" }]
-            },
-            {
-                featureType: "poi.school",
-                stylers: [{ visibility: "off" }]
-            },
-            {
-                featureType: "landscape",
-                elementType: "labels",
-                stylers: [{ visibility: "off" }]
-            }
         ]
+
     });
-    
+
+    startTime = Date.now();
+    timerInterval = setInterval(updateTimer, 1000);
+
     showQuestion();
 
     // Double click listener
@@ -120,7 +106,11 @@ function showQuestion() { // Show current question
 
     if (currentQuestion >= locations.length) {
 
-        alert(`Quiz Finished!\nYou got ${score} out of ${locations.length} correct.`);
+        clearInterval(timerInterval);
+        const finalTime =
+        Math.floor((Date.now() - startTime) / 1000);
+
+        alert(`Quiz Finished!\n` + `You got ${score} out of ${locations.length} correct.\n` + `Time: ${finalTime} seconds`);
 
         document.getElementById("question").innerHTML =
             "Quiz Complete!";
@@ -180,3 +170,20 @@ function checkAnswer(clickedLatLng) { // Check if clicked location is correct
 }
 
 init();
+
+function updateTimer() {
+
+    const currentTime = Date.now();
+
+    const elapsedSeconds =
+        Math.floor((currentTime - startTime) / 1000);
+
+    const minutes =
+        Math.floor(elapsedSeconds / 60);
+
+    const seconds =
+        elapsedSeconds % 60;
+
+    document.getElementById("timer").innerHTML =
+        `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
