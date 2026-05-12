@@ -72,9 +72,42 @@ async function init() {
         scrollwheel: false,
         disableDoubleClickZoom: true,
         draggable: false,
-        keyboardShortcuts: false
-    });
+        keyboardShortcuts: false,
 
+        styles: [ // Hide labels and points of interest
+            {
+                featureType: "poi",
+                stylers: [{ visibility: "off" }]
+            },
+            {
+                featureType: "transit",
+                stylers: [{ visibility: "off" }]
+            },
+            {
+                featureType: "administrative",
+                stylers: [{ visibility: "off" }]
+            },
+            {
+                featureType: "road",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            },
+            {
+                featureType: "poi.business",
+                stylers: [{ visibility: "off" }]
+            },
+            {
+                featureType: "poi.school",
+                stylers: [{ visibility: "off" }]
+            },
+            {
+                featureType: "landscape",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            }
+        ]
+    });
+    
     showQuestion();
 
     // Double click listener
@@ -83,7 +116,7 @@ async function init() {
     });
 }
 
-function showQuestion() {
+function showQuestion() { // Show current question
 
     if (currentQuestion >= locations.length) {
 
@@ -99,7 +132,7 @@ function showQuestion() {
         `Double Click On: ${locations[currentQuestion].name}`;
 }
 
-function checkAnswer(clickedLatLng) {
+function checkAnswer(clickedLatLng) { // Check if clicked location is correct
 
     const location = locations[currentQuestion];
 
