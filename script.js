@@ -1,7 +1,7 @@
 let map;
 let currentQuestion = 0;
 let score = 0;
-let rectangle = null;
+let rectangles = [];
 
 // 5 locations total
 const locations = [
@@ -148,12 +148,8 @@ function checkAnswer(clickedLatLng) { // Check if clicked location is correct
         lng <= bounds.east &&
         lng >= bounds.west;
 
-    if (rectangle) {
-        rectangle.setMap(null);
-    }
-
     // Draw rectangle
-    rectangle = new google.maps.Rectangle({
+    const rectangle = new google.maps.Rectangle({
         strokeColor: correct ? "#00AA00" : "#FF0000",
         strokeOpacity: 1.0,
         strokeWeight: 2,
@@ -162,6 +158,9 @@ function checkAnswer(clickedLatLng) { // Check if clicked location is correct
         map,
         bounds: bounds
     });
+    
+    // Store rectangle to remove later
+    rectangles.push(rectangle);
 
     if (correct) {
         alert("Correct!");
